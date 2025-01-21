@@ -71,3 +71,10 @@ footer section with
 - phone no. and email id. 
 - social media links 
 - review section
+
+## Success Matrix 
+
+## Timeline 
+- html and css will be done in a day
+
+---- to be updated--------
