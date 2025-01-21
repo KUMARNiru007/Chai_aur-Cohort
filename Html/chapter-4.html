@@ -9,6 +9,33 @@
 </head>
 <body>
     <h1>Links and navigation</h1>
+    <p>to access the chai aur code cohort navigate to the link</p>
+    <a href="https://chaicode.com/" alt="" >Click here</a>
+    <!---
+The issue arises because the URL specified in your <a> tag is missing the https:// prefix. When you write href="www.chaicode.com", the browser interprets it as a relative URL, not a fully qualified URL. Here's how it works and why it doesn't open correctly:
 
-</body>
+How Browsers Interpret URLs in href
+Without http:// or https://:
+
+If you write href="www.chaicode.com", the browser assumes it's a relative URL and tries to append it to the current domain.
+Example: If your webpage is hosted at http://example.com, clicking the link will navigate to http://example.com/www.chaicode.com.
+Since this path likely doesn’t exist, the link won’t work as expected.
+With https://:
+
+Writing href="https://www.chaicode.com" specifies a fully qualified URL.
+The browser knows this is an absolute URL and navigates directly to https://www.chaicode.com, ensuring it works correctly.           -->
+<nav>
+    <ul>
+        <li>Home</li>
+        <li>Services </li>
+        <li>Contact </li>
+    </ul>
+    <a href="https://chaicode.com/" target ="_blank">open in a new tab</a>
+    <!---open in new tab-->
+    <br>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=client@example.com&su=Subject+Here&body=Body+content+here" target="_blank">
+        Compose Email
+    </a>
+</nav>
+</body> 
 </html>
