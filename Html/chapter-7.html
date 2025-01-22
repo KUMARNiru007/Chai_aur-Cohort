@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,12 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>forms</h1>
-    <form action=""method="GET">
+    <h1>Forms</h1>
+    <!-- <form action=""method="GET">
         <label for="Name">Name</label>
         <input type="date" placeholder="Name">
         <buttom type=""submit>Submit</buttom>
-    </form>
-    <label></label>
+    </form> -->
+    <label for="Phone">Enter your phone number</label>
+    <input type="tel" name="Phone" placeholder="Type here" pattern="[0-9]{10}">
+    <button type="submit">Submit</button>
+    <small>Enter the phone no.</small>
+    <br>
+    <hr>
+    <label for="password">Password</label>
+    <input type="pssword" name="password" placeholder="Enter your password" pattern=".{8,}">
+    <small>Enter the password</small>
+    <small>enter the phone no.</small>
+    <br>
+    <hr>
+    <label for="comments">Comments</label>
+    <textarea type="comments" name="comments" placeholder="Enter your comments" rows ="4" pattern=".{8,}">
+    </textarea>
+    <small>Enter the comment</small>
 </body>
 </html>
