@@ -3,16 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Multimedia</title>
 </head>
+<!-- iframe tag used to enable video from youtube
+ vedio tag used to play video from the code file like .mp3 etc  -->
 <body>
     <h1>Multimedia</h1>
-    <video muted src=""></video>
-    video from youtube video embeded
+    
     <iframe 
-    data-=""
-    src=""
-     frameborder="0"
-     width ="500px"></iframe>
+    width="560" height="315"
+    src="https://www.youtube.com/embed/h71d0QyZqRE"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    ></iframe>
+    <!---URL changed from watch? to embed/-->
+
+    <hr>
+
+  <h2>Embedded Video</h2>
+  <video controls 
+  accelerometer  clipboard-write encrypted-media gyroscope picture-in-picture
+   poster="https://dummyimage.com/640x360/000/fff&text=Sample+Video+Poster"
+    width="640" height="360">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+    <track src="https://raw.githubusercontent.com/ruanyf/examples/master/video/elephants-dream-subtitles-en.vtt" kind="subtitles" srclang="en" label="English">
+    Your browser does not support the video tag.
+  </video>
+
+  <hr>
+  <h2>Audio Player</h2>
+  <audio controls>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <source src="https://file-examples.com/storage/fef823b1cd3bd16907792fa/2017/11/file_example_OOG_1MG.ogg" type="audio/ogg">
+    Your browser does not support the audio tag.
+  </audio>
+<hr>
+<br>
+<br>
+<br>
+<br>
+
+<table border ="1">
+    <th>
+      <tr>
+        <th>Format</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </th>
+    <tbody>
+      <tr>
+        <td>MP4</td>
+        <td>Video</td>
+        <td>A widely used video format compatible with most devices and browsers.</td>
+      </tr>
+      <tr>
+        <td>MP3</td>
+        <td>Audio</td>
+        <td>A popular audio format known for good compression and sound quality.</td>
+      </tr>
+      <tr>
+        <td>OGG</td>
+        <td>Audio/Video</td>
+        <td>An open-source format for audio and video, offering high-quality compression.</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
 </body>
 </html>
