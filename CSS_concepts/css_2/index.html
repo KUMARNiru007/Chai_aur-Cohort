@@ -17,16 +17,73 @@
             border:1px dashed;
         }
         .item-1{
+            grid-row-start:1;
+            grid-row-end:3;
+            grid-column-start:1;
+            grid-column-end:4;
+        }
+        .item-3{
+            grid-row-start:4;
+            grid-row-end:5;
+            grid-column-start:4;
+            grid-column-end:5;
+        }
+        .item-4{
+            /* grid-row-start:2;
+            grid-row-end:4;
+            grid-column-start:span 4; /*span (streatch)  4 means it will take 4 columns
+            grid-column-end:5; */
+
+            /* grid-row: start/end;  /*start/end means it will take all the rows
+            grid-column: start/end; */
+
+            /* grid-area : row-start/column-start/row-end/column-end; */
+
 
         }
+        .item-5{
+            grid-row-start:3;
+            grid-row-end:-1;
+            grid-column-start:1;
+            grid-column-end:-2; /*-2 means it will take 2 columns from the end*/
+        }
+.website{
+    border:3px solid black;
+    display:grid;
+    background-color:lightgray;
+    grid-template-areas:
+    'header header header'
+    'content content ads'
+    'content content ads'
+    'footer footer footer';
+}
+.Header{
+    grid-area:header;
+}
+.Content{
+    grid-area:content;
+}
+.Ads{
+    grid-area:ads;
+}
+.Footer{
+    grid-area:footer;
+}
     </style>
 </head>
 <body>
     <!-- <div class="parent">
         <div class="child item-1">Item 1</div>
         <div class="child">Item 2</div>
-        <div class="child">Item 3</div>
+        <div class="child item-5">Item 3</div>
+        <div class="child item-4">Item 4</div>
+        <div class ="child item-3">Item 5</div>
     </div> -->
-    <div>Header</div>
+    <div class ="website">
+    <div class="Header">Header</div>
+    <div class="Border">Content</div>
+    <div class="Ads">Ads</div>
+    <div class="Footer">Footer</div>
+</div>
 </body>
 </html>
