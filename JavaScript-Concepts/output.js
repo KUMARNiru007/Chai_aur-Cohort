@@ -11,11 +11,3 @@ if (weather === "rainy") {
 else{
     console.log("sunny  hai ji")
 }
-
-if () {
-
-} else if(){
-
-}else{
-
-}
