@@ -11,4 +11,4 @@ let myArray = [1,2,4,5,6]
 let result=Sum(myArray)
 console.log(`the sum of each element of array is = ${result}`)
 
-// Ctrl D to select all duplicate values
+// Ctrl D to select all duplicate values.
