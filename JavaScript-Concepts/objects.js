@@ -151,9 +151,11 @@ let pp1={
         
         }
  }
- const p1KaString =JSON.stringify(ppp1)
+ const p1KaString =JSON.stringify(ppp1) // Onject to String formaat 
  console.log(p1KaString)
- let ppp2 = JSON.parse(p1KaString)
+ let ppp2 = JSON.parse(p1KaString) // Converting String back to object 
+
+ // This is called Serelization and Deserialization
 
  ppp2.fn='Kumar'
  ppp2.ln ='Niru'
