@@ -151,7 +151,7 @@ let pp1={
         
         }
  }
- const p1KaString =JSON.stringify(ppp1) // Onject to String formaat 
+ const p1KaString =JSON.stringify(ppp1) // Object to String formaat 
  console.log(p1KaString)
  let ppp2 = JSON.parse(p1KaString) // Converting String back to object 
 
