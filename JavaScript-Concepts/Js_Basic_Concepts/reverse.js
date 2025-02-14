@@ -4,7 +4,8 @@ let arr2=[1,4,3,8,2]
 let result=arr1.reverse()
 console.log(result)
 console.log(arr1)
-result=arr2.toReversed()
+
+result = arr2.toReversed();
 console.log(result)
 console.log(arr2)
 
