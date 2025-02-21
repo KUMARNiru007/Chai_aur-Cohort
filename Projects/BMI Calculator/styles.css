@@ -1,0 +1,29 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin-top:100px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color:aqua;
+}
+
+#container {
+    height:300px;
+    width:400px;
+    border: 1px solid black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
+#input-data-cont{
+         
+}
+
