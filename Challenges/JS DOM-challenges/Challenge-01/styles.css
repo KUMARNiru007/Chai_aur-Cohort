@@ -23,9 +23,29 @@ h1{
 
     margin-bottom:90px;
     width:fit-content;
- 
+    position:relative;
+ }
+#bulb-img::before {
+    content:'';
+    position:absolute;
+    left: 50%;
+    right: 50%;
+    top:40%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ffaa00df,#ffaa00df );
+    filter: blur(40px);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
 
 }
+#bulb-img.glow::before {
+    opacity: 1;
+}
+
 #bulb-img img{
     display: block;
     max-width: 100%;
