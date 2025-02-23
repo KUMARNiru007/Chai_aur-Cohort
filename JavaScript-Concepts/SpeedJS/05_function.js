@@ -15,14 +15,14 @@ function modifyGlobal() {
 }
 modifyGlobal()
 
-//------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------// modifyGlobal();
 
-let config = function() {
-    let settings= {
-        theme: "dark"
-    }
-    return settings
-}  () // function create and called here iffe 
+let config = (function () {
+    let settings = {
+      theme: "dark",
+    };
+    return settings;
+  })(); // function create and called here iffe 
 // one time execute
 (() => {}) ()
 
