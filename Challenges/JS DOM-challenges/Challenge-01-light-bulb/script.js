@@ -11,7 +11,7 @@ switchBtn.addEventListener('click',function(){
         switchBtn.innerText = 'Turn off';
         document.body.style.backgroundColor='#f5d189';
         bulbTag.style.color='black';
-        bulb.classList.add('glow'); // Add glow class when turned on
+        bulb.classList.add('glow'); // Add glow class when turned on --new concept
 
     }
     else{
