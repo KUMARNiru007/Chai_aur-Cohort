@@ -6,14 +6,63 @@
 
 body{
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
+    margin:120px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
+h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+h3{
+    margin-bottom:20px;
+}
+#color-btns{
+    padding:10px;
+    display:flex;
+    gap:15px;
+    text-align:center;
+}
 #red-btn{
-    padding: 10px 20px;
+    padding: 20px 30px;
     background-color: red;
     color: white;
-    border: none;
-    cursor: pointer;
+    border: 1px solid black;
+    border-radius:9px;
+    font-size:20px;
+}
+#green-btn{
+    padding: 20px 30px;
+    background-color: rgb(12, 236, 12);
+    color: white;
+    border: 1px solid black;
+    border-radius:9px;
+    font-size:20px;
+}
+#blue-btn{
+    padding: 20px 30px;
+    background-color: rgb(0, 179, 255);
+    color: white;
+    border: 1px solid black;
+    border-radius:9px;
+    font-size:20px;
+}
+#purple-btn{
+    padding: 20px 30px;
+    background-color: rgb(176, 0, 176);
+    color: white;
+    border: 1px solid black;
+    border-radius:9px;
+    font-size:20px;
+}
+#reset-btn{
+    padding: 20px 30px;
+    background-color: rgb(96, 85, 85);
+    color: white;
+    border: 1px solid black;
+    border-radius:9px;
+    font-size:20px;
 }
