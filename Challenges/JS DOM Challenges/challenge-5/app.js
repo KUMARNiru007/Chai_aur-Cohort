@@ -45,132 +45,133 @@ const images = [
 ];
 
 const carouselTrack = document.getElementById('carouselTrack')
+const caption = document.getElementById('caption')
 const prevButton = document.getElementById('prevButton')
 const nextButton = document.getElementById('nextButton')
-const caption = document.getElementById('caption')
 const carouselNav = document.getElementById('carouselNav')
 const autoPlayButton = document.getElementById('autoPlayButton')
 const timerDisplay = document.getElementById('timerDisplay')
 
-let currentIndex = 0
-let autoPlayInterval
+
+let currentSlideIndex = 0
+let timeInHand = 5
+let autoPlayTimerInterval
 let timerInterval
-let timeLeft = 5 
 
-function initializeCarousel() {
-    images.forEach((image, index) => {
-        const slide = document.createElement('div')
-        slide.className = 'carousel-slide'
-        slide.style.backgroundImage = `url(${image.url})`
-        carouselTrack.appendChild(slide)
+//----------------------------------------------------------------------------------------------------------------
 
-    
-        const indicator = document.createElement('div')
-        indicator.className = 'carousel-indicator'
-        indicator.addEventListener('click', () => goToSlide(index))
-        carouselNav.appendChild(indicator)
-    })
+function startCarousel() {
 
-    updateCarousel()
+  images.forEach((image, index) => {
+    const slide = document.createElement('div')
+    slide.classList.add('carousel-slide')
+    slide.style.backgroundImage = `url(${image.url})`
+    carouselTrack.appendChild(slide)
+  
+
+    const indicator = document.createElement('div')
+    indicator.classList.add('carousel-indicator')
+    indicator.addEventListener('click', () => gotoSlide(index) )
+    carouselNav.appendChild(indicator)
+  })
+  updateCarousel()
 }
-
 
 function updateCarousel() {
 
-    carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`
-    
+  carouselTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`
 
-    caption.textContent = images[currentIndex].caption
+  caption.textContent = images[currentSlideIndex].caption;
 
-    const indicators = document.querySelectorAll('.carousel-indicator')
-    indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentIndex)
-    })
+  const indicators = document.querySelectorAll('.carousel-indicator')
+  indicators.forEach((indicator, index) => {
+    indicator.classList.toggle('active', index === currentSlideIndex )
+  })
 }
 
-
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % images.length
-    updateCarousel()
-    resetTimer()
+//------------------------------------------------------------------
+function prevSlide () {
+  currentSlideIndex = (currentSlideIndex-1  + images.length) % images.length
+  updateCarousel()
+  resetTimer()
+}
+function nextSlide () {
+  currentSlideIndex = (currentSlideIndex + 1) % images.length
+  updateCarousel()
+  resetTimer()
+}
+function gotoSlide (index) {
+  currentSlideIndex = index 
+  updateCarousel()
+  resetTimer()
 }
 
-function prevSlide() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length
-    updateCarousel()
-    resetTimer()
-}
-
-function goToSlide(index) {
-    currentIndex = index
-    updateCarousel()
-    resetTimer()
-}
-
-
-function toggleAutoPlay() {
-    if (autoPlayInterval) {
-        stopAutoPlay()
-        autoPlayButton.textContent = 'Start Auto Play'
+// ---------------------------------------------------------------------------------------
+function toggleAutoPlayButton () {
+  if(autoPlayTimerInterval) {
+      stopAutoPlay()
+      autoPlayButton.textContent = 'Start Auto Play'
     } else {
         startAutoPlay()
         autoPlayButton.textContent = 'Stop Auto Play'
-    }
+  }
 }
 
 function startAutoPlay() {
-    autoPlayInterval = setInterval(nextSlide, 5000)
-    startTimer()
+  autoPlayTimerInterval = setInterval(nextSlide , 5000)
+  startTimer()
 }
 
 function stopAutoPlay() {
-    clearInterval(autoPlayInterval)
-    clearInterval(timerInterval)
-    autoPlayInterval = null
-    timerDisplay.textContent = ''
+  clearInterval(autoPlayTimerInterval)
+  clearInterval(timerInterval)
+
+  autoPlayTimerInterval = null 
+  timerDisplay.textContent = ''
+  updateTimerDisplay()
 }
+
 
 function startTimer() {
-    timeLeft = 5
+  timeInHand = 5
+  updateTimerDisplay()
+  timerInterval = setInterval(()=> {
+    timeInHand--
     updateTimerDisplay()
-    timerInterval = setInterval(() => {
-        timeLeft--
-        updateTimerDisplay()
-        if (timeLeft <= 0) timeLeft = 5
-    }, 1000)
+    if(timeInHand == 0)
+      timeInHand = 5
+  }, 1000)
+}
+function resetTimer () {
+  if(autoPlayTimerInterval) {
+    clearInterval(timerInterval)
+    startTimer()
+  }
 }
 
-function resetTimer() {
-    if (autoPlayInterval) {
-        timeLeft = 5
-        updateTimerDisplay()
-    }
+function updateTimerDisplay () {
+  console.log(timeInHand)
+  timerDisplay.textContent = autoPlayTimerInterval ? `Next slide in: ${timeInHand}s` : '' ;
+
 }
+ //--------------------------------------------------------------------------------------------------------------
 
-function updateTimerDisplay() {
-    timerDisplay.textContent = autoPlayInterval ? `Next slide in: ${timeLeft}s` : ''
-}
+ prevButton.addEventListener('click', () => {
+  prevSlide()
+  if (autoPlayTimerInterval) {
+    stopAutoPlay()
+    
+  }
+ })
 
+ nextButton.addEventListener('click', ()=> {
+  nextSlide()
+  if (autoPlayTimerInterval) {
+    stopAutoPlay()
+    
+  }
+ })
 
-prevButton.addEventListener('click', () => {
-    prevSlide()
-    if (autoPlayInterval) stopAutoPlay()
-})
+ autoPlayButton.addEventListener('click', toggleAutoPlayButton)
 
-nextButton.addEventListener('click', () => {
-    nextSlide()
-    if (autoPlayInterval) stopAutoPlay()
-})
-
-autoPlayButton.addEventListener('click', toggleAutoPlay)
-
-
-initializeCarousel()
-
-
-
-
-
-
-
-
+ startCarousel()
