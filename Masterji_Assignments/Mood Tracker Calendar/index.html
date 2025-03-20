@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood-Tracker Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Mood-Tracker Calendar</h1>
+    </div>
+
+
+    <div class="container">
+        <h1>Select your Mood</h1>
+        <div class ="mood-buttons">
+            <button class="mood-btn">😊</button>
+            <button class="mood-btn">😍</button>
+            <button class="mood-btn">😐</button>
+            <button class="mood-btn">😢</button>
+            <button class="mood-btn">😭</button>
+        </div>
+
+    <div class="view-toggle">
+            <button class="view-btn" data-view="day">Day</button>
+            <button class="view-btn" data-view="week">Week</button>
+            <button class="view-btn active" data-view="month">Month</button>
+    </div>
+        <div class = "calendar-preview">
+            <h2>Mood Calendar</h2>
+            <div class="calendar-navigation">
+                <span id="calendar-prev" 
+                      class="material-symbols-rounded">
+                    <button id = "prev-cal"><img src="./assets/left-arrow.png" alt=""></button>
+                </span>
+                <span id="calendar-next" 
+                      class="material-symbols-rounded">
+                    <button id = "next-cal"><img src="./assets/right-arrow.png" alt=""></button>
+                </span>
+            </div>
+
+        </div>
+
+
+        <div id="calendar"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

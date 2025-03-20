@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.header {
+    background-color: #e2a54a;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mood-btn {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    transform-origin: center;
+}
+
+.mood-btn:hover {
+    transform: scale(1.1);
+}
+
+
+.calendar-preview {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+ h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.calendar-navigation {
+    display: flex;
+    height: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#prev-cal,
+#next-cal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+#prev-cal img,#next-cal img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+#prev-cal:hover img,#next-cal:hover img {
+    opacity: 1;
+}
+
+#calendar {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day, .inactive {
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.day {
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.day:hover {
+    background-color: #e0e0e0;
+}
+
+.day.active {
+    background-color: #e2a54a;
+    color: white;
+}
+
+.day .mood {
+    font-size: 1rem;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+.day:hover .mood {
+    display: inline-block;
+    transform: scale(1.5);
+}
+
+.inactive {
+    color: #ccc;
+}
+
+.mood-btn.selected {
+    background-color: #e2e2e2;
+    transform: scale(1.1);
+}
+.mood-btn.selected::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #e2a54a;
+    border-radius: 50%;
+}
+
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.view-btn {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.view-btn.active {
+    background-color: #e2a54a;
+    color: white;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .calendar-container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .calendar {
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+  
+    .day {
+      height: 40px;
+      font-size: 14px;
+    }
+  
+    .mood-selector {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .mood-btn {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+    }
+  
+    .header {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .month-nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  
+  /* For extra small devices */
+  @media screen and (max-width: 480px) {
+    .day {
+      height: 35px;
+      font-size: 12px;
+    }
+  
+    .month-year {
+      font-size: 18px;
+    }
+  
+    .mood-btn {
+      padding: 6px;
+      font-size: 14px;
+    }
+  }
