@@ -1,0 +1,13 @@
+{
+  "name": "build-express",
+  "version": "1.0.0",
+  "description": "a custom express",
+  "main": "index.js",
+  "type" :"commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
