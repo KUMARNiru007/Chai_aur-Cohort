@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MarkDown converter">
+    <title>Markdown Live</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=j0CkJchwDVRD&format=png&color=000000">
+</head>
+<body>
+    <header>
+        <div id="logo">
+        <img src="https://img.icons8.com/?size=100&id=j0CkJchwDVRD&format=png&color=000000" alt="">
+        <h1>Markdown Live</h1>
+        </div>
+        <a id="github" href="https://github.com/KUMARNiru007/Markdown-Live" target="_blank">
+            <i class="ri-github-fill"></i> Github
+        </a>
+    </header>
+    <section class ="content">
+        <div class="editor-section">
+            <div class ="editor-header">
+              <h3>Editor</h3>
+              <button id="reset">Reset</button>
+            </div>
+            <div class="editor-content">
+                <textarea name="editor-text" id="input" placeholder=" Enter Markdown"></textarea>
+            </div>
+        </div>    
+        <div class="preview-section">
+        <div class= "preview-header">
+            <h3>Preview</h3>
+        </div>
+        <div class="preview-content" id="output" ></div>
+    </div>
+    </section>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Markdown Live . All rights reserved</p>
+        <p>Made with ❤️ By Kumar Nirupam </p>
+    </footer>
+</body>
+
+</html>
