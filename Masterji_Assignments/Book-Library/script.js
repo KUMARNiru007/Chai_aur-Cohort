@@ -15,7 +15,7 @@ const layoutToggleButton = document.querySelector('.layout-type button');
 
 document.addEventListener('DOMContentLoaded', initializeApp);
 
-// Main App Istart
+
 async function initializeApp() {
     try {
         await fetchData();
@@ -26,7 +26,6 @@ async function initializeApp() {
     }
 }
 
-// Fetch Books Data
 async function fetchData() {
     const url = `https://api.freeapi.app/api/v1/public/books?page=${currentPage}&limit=${pageLimit}`;
     
@@ -209,7 +208,7 @@ function sortBooks() {
     displayBooks(sortedBooks);
 }
 
-// Pagination Handlers
+
 function handlePrevPage() {
     if (currentPage > 1) {
         currentPage--;
@@ -224,14 +223,25 @@ function handleNextPage() {
     }
 }
 
-// Layout Toggle
+
 function toggleLayout() {
-    cardContainer.classList.toggle('grid');
-    layoutToggleButton.textContent = 
-        cardContainer.classList.contains('grid') ? 'List View' : 'Grid View';
+    const layout = cardContainer.classList.contains('grid') ? 'list' : 'grid';
+    
+    // Update container class
+    cardContainer.classList.remove('grid', 'list');
+    cardContainer.classList.add(layout);
+    
+    // Update button text and icon
+    const icon = layoutToggleButton.previousElementSibling;
+    if (layout === 'list') {
+        layoutToggleButton.textContent = 'Grid View';
+        icon.className = 'ri-grid-line';
+    } else {
+        layoutToggleButton.textContent = 'List View';
+        icon.className = 'ri-list-unordered';
+    }
 }
 
-// Error Handling
 function displayErrorMessage(message) {
     cardContainer.innerHTML = `
         <div class="error-message">

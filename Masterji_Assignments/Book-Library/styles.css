@@ -16,7 +16,7 @@ body {
 .header {
     background-color: #2c3e50;
     color: white;
-    height: 10vh;
+    height: 12vh;
     padding: 5px 30px;
     display: flex;
     text-align: center;
@@ -35,14 +35,14 @@ body {
     color: white;
     font-size: 1.2rem;
     background-color: #34495e;
-    padding: 8px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
 .header a:hover {
     color:black;
-    background-color: #ffff;
+    background-color: white;
     transform: scale(1.05);
 }
 
@@ -81,7 +81,7 @@ body {
 
 .search-tab input:focus {
     outline: none;
-    border-color: #74a9cd;
+    border-color: #2c3e50;
     box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
 }
 
@@ -96,10 +96,7 @@ body {
 }
 
 .search-tab button:hover {
-    color: #2c3e50;
-    background-color:#ffff;
-    border:2px solid #2c3e50;
-
+    background-color: #502c2c;
 }
 
 .btn-container {
@@ -108,92 +105,210 @@ body {
     gap: 20px;
 }
 
-.sort-container, .layout-type {
+.sort-container {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
-
-select, .layout-type button {
-    padding: 10px 15px;
+.sort-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 10px;
     border: 2px solid #2c3e50;
     border-radius: 25px;
     background-color: white;
     color: #2c3e50;
     cursor: pointer;
+    font-size: 1rem;
+    min-width: 150px;
+    transition: all 0.3s ease;
+}
+.sort-container select:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.sort-container select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.2);
+}
+
+.sort-container i {
+    position: absolute;
+    right: 12px;
+    color: #2c3e50;
+    pointer-events: none;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
-.layout-type button:hover {
+.sort-container select:hover + i {
+    color: white;
+}
+
+.layout-type {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    border: 2px solid #2c3e50;
+    border-radius: 25px;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.layout-type:hover {
     background-color: #2c3e50;
     color: white;
+}
+
+.layout-type button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.layout-type i {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
 }
 
 .card-container.grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+}
+
+.card-container.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-container.list .card {
+    flex-direction: row;
+    height: 200px;
+}
+
+.card-container.list .image-container {
+    width: 130px;
+    padding-top: 0;
+    height: 100%;
+}
+
+.card-container.list .about {
+    flex: 1;
     padding: 20px;
 }
 
-.card-container a.card {
-    background-color: white;
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
 }
 
-.card-container a.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
 
-.card-container .image-container {
-    height: 300px;
-    overflow: hidden;
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 150%; 
 }
 
-.card-container .image img {
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card-container a.card:hover .image img {
-    transform: scale(1.1);
+.image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.card-container .about {
+.about {
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.card-container .title {
-    font-size: 1.2rem;
-    font-weight: bold;
+.title {
+    font-size: 1.1rem;
+    font-weight: 600;
     margin-bottom: 10px;
-    color: #2c3e50;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
-.card-container .book-meta, .publish-date {
-    color: #7f8c8d;
-    margin-bottom: 5px;
+.book-meta {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+.publish-date {
+    font-size: 0.8rem;
+    color: var(--light-text);
+}
+
+.list .card {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.list .image-container {
+    width: 150px;
+    padding-top: 0;
+    flex-shrink: 0;
+}
+
+.list .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 3px;
     margin: 20px 0;
 }
 
 .pagination button {
     padding: 10px 15px;
-    border: 2px solid #2c3e50;
+    margin:3px;
+    border: 1.5px solid #2c3e50;
     background-color: white;
     color: #2c3e50;
     border-radius: 25px;
@@ -206,12 +321,12 @@ select, .layout-type button {
     color: white;
 }
 
-.pagination .number {
+ .number {
     width: 40px;
     height: 40px;
 }
 
-.pagination .number.active {
+.number.active {
     background-color: #2c3e50;
     color: white;
 }
@@ -221,6 +336,8 @@ select, .layout-type button {
     color: white;
     padding: 20px;
     text-align: center;
+    display:flex;
+    justify-content:space-between;
 }
 
 .error-message, .no-results {
@@ -230,4 +347,39 @@ select, .layout-type button {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+    .btn-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .layout-type {
+        width: auto;
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    .sort-container select {
+        width: 100%;
+    }
+
+    .layout-type button {
+        width: auto;
+    }
+}
+@media screen and (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
