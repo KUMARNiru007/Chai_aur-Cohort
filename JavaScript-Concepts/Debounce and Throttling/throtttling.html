@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throttling</title>
+</head>
+<body>
+    <input type="text" onkeyup="optimizedGetSearchResult()">
+</body>
+<script>
+    let counter =1;
+    function sendResult() {
+        console.log(`Api call ${counter++}`)
+    }
+function jaadoKarlo(myFn , delay) {
+    let permission = true;
+        return function () {
+          if (permission === true) {
+            myFn();
+            permission = false;
+            setTimeout(() => {
+              permission = true;
+            }, delay);
+          }
+        };
+}
+
+    const optimizedGetSearchResult = jaadoKarlo(sendResult, 1000)
+</script>
+</html>

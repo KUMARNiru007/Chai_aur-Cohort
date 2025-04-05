@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+</head>
+<body>
+    <input type="text" onkeyup="optimizedGetSearchResult()">
+</body>
+<script>
+    let counter =1;
+    function sendResult() {
+        console.log(`Api call ${counter++}`)
+    }
+
+    function jaadoKarlo(myFn  ,delay){
+        let TimerId;
+        return function() {
+            clearTimeout(TimerId)
+            setTimeout(() => {
+                myFn();
+            } ,delay)
+        }
+    }
+   
+const optimizedGetSearchResult = jaadoKarlo(sendResult, 1000)
+</script>
+</html>
