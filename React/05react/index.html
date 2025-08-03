@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohort aur React</title>
+    <script src = "https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src = "https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root">this is classic root div</div>
+   <script src = "https://unpkg.com/@babel/standalone@7.28.2/babel.min.js"></script>
+
+  <script type="text/babel">
+      const Chai = ({ name }) => (
+        <div>
+          <h2>{name}</h2>
+        </div>
+      );
+      const App = () => (
+        <div>
+          <h1>Chai variations</h1>
+          <Chai name="Ginger Tea" />
+          <Chai name="Masala Tea" />
+        </div>
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+
+</body>
+</html>
