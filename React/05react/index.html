@@ -11,23 +11,29 @@
     <div id="root">this is classic root div</div>
    <script src = "https://unpkg.com/@babel/standalone@7.28.2/babel.min.js"></script>
 
-  <script type="text/babel">
-      const Chai = ({ name }) => (
-        <div>
-          <h2>{name}</h2>
-        </div>
-      );
-      const App = () => (
-        <div>
-          <h1>Chai variations</h1>
-          <Chai name="Ginger Tea" />
-          <Chai name="Masala Tea" />
-        </div>
-      );
+   <script type = "text/babel">
 
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(<App />);
-    </script>
+    const Chai =({name}) => (
+        <div>
+            <h2>
+               {name} 
+            </h2>
+        </div>
+    )
+
+    const App = ()=>(
+        <div>
+            <h1>
+                Chai variations
+                <Chai name = "Masala Tea" />
+                <Chai name = "Lemon Tea" />
+            </h1>
+        </div>
+    )
+
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App />)
+   </script>
 
 </body>
 </html>
