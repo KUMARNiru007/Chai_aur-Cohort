@@ -1,0 +1,42 @@
+import {create} from "zustand"
+
+export const useCartStore = create((set) => ({
+    cart: [], //target
+
+    addToCart : (item) => 
+        set((state) => ({
+            cart: [...state.cart, item]
+        })),
+
+    removeFromCart : (id) => set((state) => ({
+        cart: state.cart.filter((item) => item.id !==id)
+    })),
+    
+    clearCart: () => set({
+        cart :[]
+    })
+    // no callback needed 
+
+    
+    
+
+
+
+
+//
+  const cartCount = useCartStore((state) => state.cart.length)
+  const addToCart = useCartStore((state) => state.addToCart)
+
+  in __root.jsx
+
+
+//Persist  help in store in LocalStoarage also 
+
+
+code just create (persist(//
+
+same code...
+
+))
+
+
