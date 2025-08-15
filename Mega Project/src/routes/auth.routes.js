@@ -6,6 +6,7 @@ const router = Router();
 
 
 router.route("/register").get(userRegistrationValidator(),validate , registerUser); //factory pattern
+router.route("/verify").get()
 
 //userRegistrationValidator() returns an array
 // authchecker deleted middleware
