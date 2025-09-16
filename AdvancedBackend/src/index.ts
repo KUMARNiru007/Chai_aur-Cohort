@@ -16,6 +16,45 @@ const redis = new Redis({host:'localhost',
     port: Number(6379)
 });
 
+//  rate limiter - middleware
+
+app.use(async function(req,res,next) {
+    const key = 'rate-limit';
+    //'rate-limit${user_id}'
+    const value= await redis.get(key)
+    
+
+    if(value == null){
+       await redis.set(key, 1)
+        await redis.expire(key, 60);
+        // await redis.expire(key,60); //for clearing it after 1 min
+
+    }
+    if(Number(value) >10){
+        return res.status(429).json({message:'Too many request'})
+    }
+
+   await redis.incr(key);
+    next();
+})
+
+
+// redis.lpush('video-queue','video-url1')
+
+// queue system 
+
+/**
+ * LPush (video-url)  Api Server :8000 <--- Video Url (video-url)
+ * 
+ * Redis[,video-url2,video-url1]
+ * 
+ * Rpull Video Processor(video-url) // 1 then 2 then 3
+ * 
+ * 
+ * for statck 
+ * Lpush , Lpop 
+ */
+
 app.get('/',(req,res) => {
     return res.json({
         success: 'success'
