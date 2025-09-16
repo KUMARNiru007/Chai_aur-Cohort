@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sockets</title>
+</head>
+<body>
+    <!-- <div>
+
+        <div>
+            <input type="text" placeholder="Type your message" id="message-input">
+        </div>
+        <button id="send-btn">Send</button>
+        <div class=" message">
+            <ul>
+                <li id="message-conatiner">
+                    Hello
+                </li>
+            </ul>
+        </div>
+    </div> -->
+
+
+    <div id="checkbox-container" ></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        const socket = io(); // connect to the backend 
+        const checkboxes = new Array(100).fill(0);
+        const checkboxContainer = document.getElementById('checkbox-container');
+
+
+        async function stateUpdate() {
+            const resp = await fetch("/state" ,{
+                headers:{
+                    'Content-Type':'appliction/json'
+                }
+            })
+
+            const _json = await resp.json()
+            console.log({_json})
+             
+            if(_json.state){
+                _json.state.forEach((e,index) => {
+                    const el= document.getElementById(`index-${index}`)
+                    el.checked = e;
+                })
+
+            }
+        }
+
+ 
+
+
+          socket.on('checkbox-update',({index,value}) =>{
+            // const element = document.getElementById(`index-${index}`)
+
+            // if(element){
+            //     element.checked = value
+            // }
+
+            stateUpdate();
+        })
+
+        checkboxes.forEach((checkbox , i) => {
+            const input = document.createElement('input')
+            input.setAttribute('type', 'checkbox')
+            input.id = `index-${i}`
+
+            input.addEventListener('change', (e) => {
+                console.log(input.checked)
+                socket.emit('checkbox-update', {index:i,value:input.checked })
+            })
+            checkboxContainer.append(input)
+        });
+
+      
+
+
+
+
+        // const messageConatiner = document.getElementById('message-conatiner')
+
+
+        // socket.on('server-message' , (msg) => {
+        //     const li = document.createElement('li')
+        //     li.innerText = msg;
+        //     messageConatiner.appendChild(li);
+        // });
+
+
+        // const messageInput = document.getElementById("message-input");
+        // const sendButton = document.getElementById("send-btn")
+
+
+
+        // sendButton.addEventListener('click' , () => {
+        //     const msg = messageInput.value;
+
+        //     // Event Name and the data
+        //     socket.emit('message' , msg)
+        // })
+        stateUpdate()
+    </script>
+    
+</body>
+</html>
